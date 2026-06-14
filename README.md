@@ -1,4 +1,4 @@
-**PARKOUR HAST - OFFICIAL WEBSITE**
+## PARKOUR HAST - OFFICIAL WEBSITE
 
 The official website for **Parkour Hast**, an international Minecraft parkour server. Built with a clean, modern, and high-performance layout featuring a Green & White aesthetic.
 
