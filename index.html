@@ -86,37 +86,35 @@
     </footer>
 
     <script>
-        function copyServerIP() {
-
-            const serverIP = "parkourhast.aternos.me"; 
+    function copyServerIP() {
+        const serverIP = "parkourhast.aternos.me"; 
+        
+        navigator.clipboard.writeText(serverIP).then(() => {
+            const btn = document.getElementById("copy-ip-btn");
             
-            navigator.clipboard.writeText(serverIP).then(() => {
-                const btn = document.getElementById("copy-ip-btn");
-                
-                btn.innerHTML = "IP COPIED! ✓";
-                btn.classList.add("copied");
-                
-                setTimeout(() => {
-                    btn.innerHTML = "PLAY NOW <span style="display:block; font-size: 0.8rem; font-weight: normal; margin-top: 4px; opacity: 0.9;">Version: 26.1.2</span>";
-                    btn.classList.remove("copied");
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-            });
-        }
-
-        // Smooth scroll fallback
-        document.querySelectorAll('.nav-links a, .logo').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId.startsWith('#')) {
-                    e.preventDefault();
-                    document.querySelector(targetId).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
+            btn.innerHTML = "IP COPIED! ✓";
+            btn.classList.add("copied");
+            
+            setTimeout(function() {
+                btn.innerHTML = 'PLAY NOW <span style="display:block; font-size: 0.8rem; font-weight: normal; margin-top: 4px; opacity: 0.9;">Version: 26.1.2</span>';
+                btn.classList.remove("copied");
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
         });
-    </script>
+    }
+
+    document.querySelectorAll('.nav-links a, .logo').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId.startsWith('#')) {
+                e.preventDefault();
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>
 </body>
 </html>
