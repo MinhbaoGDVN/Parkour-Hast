@@ -1,9 +1,14 @@
-## PARKOUR HAST - OFFICIAL WEBSITE
+<div align="center">
 
+<img src="https://parkourhast.vercel.app/logo.png" width="100" alt="Server Logo">
+
+# PARKOUR HAST - OFFICIAL WEBSITE
 The official website for **Parkour Hast**, an international Minecraft parkour server. Built with a clean, modern, and high-performance layout featuring a Green & White aesthetic.
 
 [![Deployment Status](https://img.shields.io/badge/Deploy-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com)
 [![Minecraft Version](https://img.shields.io/badge/Minecraft-26.1.2-22c55e?style=for-the-badge&logo=minecraft&logoColor=white)](https://minecraft.net)
+
+</div>
 
 ---
 
