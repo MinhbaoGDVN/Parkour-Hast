@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,8 +34,8 @@
     </header>
 
     <section id="about" class="section bg-white">
-        <div class="section-content slide-up">
-            <h2>About us</h2>
+        <div class="section-content">
+            <h2 class="section-title">About us</h2>
             <div class="features">
                 <div class="card">
                     <h3>Parkour</h3>
@@ -54,8 +54,8 @@
     </section>
 
     <section id="store" class="section bg-green">
-        <div class="section-content slide-up">
-            <h2 class="text-white">Shop</h2>
+        <div class="section-content">
+            <h2 class="section-title text-white">Shop</h2>
             <div class="empty-store">
                 <p>The store system is currently being updated. Please check back later!</p>
             </div>
@@ -63,31 +63,41 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 Server Parkour Hast. Not affiliated with Mojang Studio.</p>
+        <p>&copy; 2026 Server Parkour Hast. Not affiliated with Mojang Studios.</p>
     </footer>
 
     <script>
         function copyServerIP() {
-            // Thay IP thực tế của bạn vào đây
-            const serverIP = "[IP_SERVER_CUA_BAN]"; 
+
+            const serverIP = "parkourhast.aternos.me"; 
             
             navigator.clipboard.writeText(serverIP).then(() => {
                 const btn = document.getElementById("copy-ip-btn");
-                const originalText = btn.innerHTML;
+                const originalText = "PLAY NOW";
                 
-                // Hiệu ứng đổi chữ khi copy thành công
-                btn.innerHTML = "ĐÃ SAO CHÉP IP! ✓";
+                btn.innerHTML = "COPYED!";
                 btn.classList.add("copied");
                 
-                // Trả lại chữ cũ sau 2 giây
                 setTimeout(() => {
                     btn.innerHTML = originalText;
                     btn.classList.remove("copied");
                 }, 2000);
             }).catch(err => {
-                console.error('Lỗi khi sao chép: ', err);
+                console.error('ERROR: ', err);
             });
         }
+
+        document.querySelectorAll('.nav-links a, .logo').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
