@@ -15,17 +15,17 @@
                 <span>Parkour Hast</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#home">Homepage</a></li>
-                <li><a href="#about">Introduce</a></li>
-                <li><a href="#store">Shop</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#store">Store</a></li>
             </ul>
         </div>
     </nav>
 
     <header id="home" class="hero">
         <div class="hero-content fade-in">
-            <h1>Welcome to the <span class="highlight">Parkour Hast server!</span></h1>
-            <p>Experience Minecraft parkour with the player community and climb the ranks to compete.</p>
+            <h1>Welcome to <span class="highlight">Parkour Hast!</span></h1>
+            <p>Experience the ultimate Minecraft parkour with a global community and climb the leaderboards.</p>
             
             <button id="copy-ip-btn" class="btn-primary" onclick="copyServerIP()">
                 PLAY NOW
@@ -39,15 +39,15 @@
             <div class="features">
                 <div class="card">
                     <h3>Parkour</h3>
-                    <p>Parkour gameplay is rich and diverse, featuring challenging levels.</p>
+                    <p>Diverse and challenging gameplay with unique levels designed for all skill levels.</p>
                 </div>
                 <div class="card">
                     <h3>Rank</h3>
-                    <p>You level up after each level you complete, so become the best here!</p>
+                    <p>Level up after completing each stage. Compete with players worldwide to become the best!</p>
                 </div>
                 <div class="card">
                     <h3>Event</h3>
-                    <p>Weekly events with attractive rewards await your participation.</p>
+                    <p>Weekly events with epic rewards and competitive tournaments await your participation.</p>
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@
 
     <section id="store" class="section bg-green">
         <div class="section-content">
-            <h2 class="section-title text-white">Shop</h2>
+            <h2 class="section-title text-white">Webshop</h2>
             <div class="empty-store">
                 <p>The store system is currently being updated. Please check back later!</p>
             </div>
@@ -68,25 +68,25 @@
 
     <script>
         function copyServerIP() {
-
-            const serverIP = "parkourhast.aternos.me"; 
+            // Ông thay IP thực tế của server vào đây nhé
+            const serverIP = "play.parkourhast.com"; 
             
             navigator.clipboard.writeText(serverIP).then(() => {
                 const btn = document.getElementById("copy-ip-btn");
-                const originalText = "PLAY NOW";
                 
-                btn.innerHTML = "COPIED!";
+                btn.innerHTML = "IP COPIED! ✓";
                 btn.classList.add("copied");
                 
                 setTimeout(() => {
-                    btn.innerHTML = originalText;
+                    btn.innerHTML = "PLAY NOW";
                     btn.classList.remove("copied");
                 }, 2000);
             }).catch(err => {
-                console.error('ERROR: ', err);
+                console.error('Failed to copy: ', err);
             });
         }
 
+        // Smooth scroll fallback
         document.querySelectorAll('.nav-links a, .logo').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const targetId = this.getAttribute('href');
