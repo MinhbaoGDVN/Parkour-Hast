@@ -1,46 +1,45 @@
-/* Đặt lại mặc định và khai báo màu sắc */
 :root {
-    --primary-green: #2ecc71; /* Xanh lá tươi sáng */
+    --primary-green: #2ecc71;
     --dark-green: #27ae60;
-    --text-dark: #333333;
+    --light-green: #e8f8f5;
+    --text-dark: #2c3e50;
     --text-light: #ffffff;
-    --bg-white: #ffffff;
-    --bg-gray: #f8f9fa;
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* Cấu trúc cuộn mượt */
 html {
     scroll-behavior: smooth;
 }
 
 body {
     color: var(--text-dark);
-    background-color: var(--bg-gray);
+    background-color: #ffffff;
+    overflow-x: hidden;
 }
 
-/* Navbar mờ ảo (Glassmorphism) */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px); /* Hiệu ứng kính mờ giống vibe studio */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-b: 1px solid rgba(0, 0, 0, 0.05);
     z-index: 1000;
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 15px 20px;
+    padding: 15px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,92 +49,118 @@ body {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: var(--dark-green);
-    font-weight: 800;
-    font-size: 1.2rem;
-    gap: 10px;
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 1.25rem;
+    gap: 12px;
+    transition: var(--transition-smooth);
 }
 
 .logo img {
-    height: 40px;
+    height: 38px;
     width: auto;
-    border-radius: 5px; /* Bo góc logo nhẹ */
+    object-fit: contain;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 32px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--text-dark);
     font-weight: 600;
-    transition: color 0.3s ease;
-    text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+    position: relative;
+    padding: 4px 0;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-green);
+    transition: var(--transition-smooth);
 }
 
 .nav-links a:hover {
     color: var(--primary-green);
 }
 
-/* Hero Section (Trang Chủ) */
+.nav-links a:hover::after {
+    width: 100%;
+}
+
 .hero {
     height: 100vh;
-    background: linear-gradient(135deg, #ffffff 0%, #e8f8f5 100%);
+    background: radial-gradient(circle at 90% 10%, var(--light-green) 0%, #ffffff 60%);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 20px;
+    padding: 0 24px;
+}
+
+.hero-content {
+    max-width: 700px;
 }
 
 .hero h1 {
     font-size: 3.5rem;
-    margin-bottom: 15px;
-    color: var(--text-dark);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
 }
 
 .highlight {
     color: var(--primary-green);
+    position: relative;
 }
 
 .hero p {
     font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 30px;
+    color: #64748b;
+    margin-bottom: 40px;
+    line-height: 1.6;
 }
 
-/* Nút Copy IP */
 .btn-primary {
     background-color: var(--primary-green);
     color: var(--text-light);
     border: none;
-    padding: 15px 35px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 50px;
+    padding: 16px 40px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
-    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(46, 204, 113, 0.25);
+    transition: var(--transition-smooth);
 }
 
 .btn-primary:hover {
     background-color: var(--dark-green);
-    transform: translateY(-3px); /* Hiệu ứng nảy lên */
-    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(46, 204, 113, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
 }
 
 .btn-primary.copied {
-    background-color: #2c3e50;
-    box-shadow: 0 4px 15px rgba(44, 62, 80, 0.4);
+    background-color: #34495e;
+    box-shadow: 0 10px 25px rgba(52, 73, 94, 0.25);
 }
 
-/* Các section dùng chung */
 .section {
-    padding: 100px 20px;
+    padding: 120px 24px;
     min-height: 80vh;
     display: flex;
     align-items: center;
@@ -143,73 +168,100 @@ body {
 }
 
 .section-content {
-    max-width: 1200px;
+    max-width: 1100px;
     width: 100%;
+}
+
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 800;
     text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: -0.01em;
+    position: relative;
 }
 
-.section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    color: var(--dark-green);
-    text-transform: uppercase;
+.bg-white {
+    background-color: #ffffff;
 }
-
-/* Giới thiệu - Dạng thẻ (Cards) */
-.bg-white { background-color: var(--bg-white); }
 
 .features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
 }
 
 .card {
-    background: var(--bg-white);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border-bottom: 4px solid var(--primary-green);
-    transition: transform 0.3s ease;
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    transition: var(--transition-smooth);
 }
 
 .card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(46, 204, 113, 0.08);
+    border-color: rgba(46, 204, 113, 0.2);
 }
 
 .card h3 {
     color: var(--primary-green);
-    margin-bottom: 15px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 16px;
 }
 
-/* Cửa hàng */
-.bg-green { background-color: var(--primary-green); }
-.text-white { color: var(--text-light) !important; }
+.card p {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.bg-green {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
+}
+
+.text-white {
+    color: var(--text-light) !important;
+}
 
 .empty-store {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 50px;
-    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 60px 40px;
+    border-radius: 24px;
     color: var(--text-light);
-    font-size: 1.2rem;
-    border: 2px dashed rgba(255, 255, 255, 0.5);
-}
-
-/* Footer */
-footer {
-    background-color: #2c3e50;
-    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
     text-align: center;
-    padding: 20px 0;
+    border: 2px dashed rgba(255, 255, 255, 0.25);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-/* Hiệu ứng Animation đơn giản */
+footer {
+    background-color: #1a252f;
+    color: #94a3b8;
+    text-align: center;
+    padding: 30px 24px;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 .fade-in {
-    animation: fadeIn 1.2s ease-in;
+    animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
