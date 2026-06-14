@@ -1,0 +1,215 @@
+/* Đặt lại mặc định và khai báo màu sắc */
+:root {
+    --primary-green: #2ecc71; /* Xanh lá tươi sáng */
+    --dark-green: #27ae60;
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --bg-white: #ffffff;
+    --bg-gray: #f8f9fa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Cấu trúc cuộn mượt */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--text-dark);
+    background-color: var(--bg-gray);
+}
+
+/* Navbar mờ ảo (Glassmorphism) */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px); /* Hiệu ứng kính mờ giống vibe studio */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--dark-green);
+    font-weight: 800;
+    font-size: 1.2rem;
+    gap: 10px;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+    border-radius: 5px; /* Bo góc logo nhẹ */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.nav-links a:hover {
+    color: var(--primary-green);
+}
+
+/* Hero Section (Trang Chủ) */
+.hero {
+    height: 100vh;
+    background: linear-gradient(135deg, #ffffff 0%, #e8f8f5 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.highlight {
+    color: var(--primary-green);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Nút Copy IP */
+.btn-primary {
+    background-color: var(--primary-green);
+    color: var(--text-light);
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-green);
+    transform: translateY(-3px); /* Hiệu ứng nảy lên */
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.6);
+}
+
+.btn-primary.copied {
+    background-color: #2c3e50;
+    box-shadow: 0 4px 15px rgba(44, 62, 80, 0.4);
+}
+
+/* Các section dùng chung */
+.section {
+    padding: 100px 20px;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-content {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--dark-green);
+    text-transform: uppercase;
+}
+
+/* Giới thiệu - Dạng thẻ (Cards) */
+.bg-white { background-color: var(--bg-white); }
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--bg-white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-bottom: 4px solid var(--primary-green);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card h3 {
+    color: var(--primary-green);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+/* Cửa hàng */
+.bg-green { background-color: var(--primary-green); }
+.text-white { color: var(--text-light) !important; }
+
+.empty-store {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 50px;
+    border-radius: 15px;
+    color: var(--text-light);
+    font-size: 1.2rem;
+    border: 2px dashed rgba(255, 255, 255, 0.5);
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Hiệu ứng Animation đơn giản */
+.fade-in {
+    animation: fadeIn 1.2s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
